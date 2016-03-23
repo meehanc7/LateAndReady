@@ -16,8 +16,8 @@
             app:popupTheme="@style/AppTheme.PopupOverlay" />
 
     <android.support.design.widget.FloatingActionButton
-        android:layout_width="10dp"
-        android:layout_height="10dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:id="@+id/fab"/>
 
 </LinearLayout>
