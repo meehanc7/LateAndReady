@@ -13,7 +13,7 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="#ff0000"
+        android:background="#d40303"
         app:popupTheme="@style/AppTheme.PopupOverlay"
         />
 
@@ -23,9 +23,9 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Departing From"
         android:id="@+id/textView"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="50dp"
         android:layout_gravity="center_horizontal"
-        android:textColor="#ff0000"/>
+        android:textColor="#d40303"/>
 
     <EditText
         android:layout_width="match_parent"
@@ -44,7 +44,7 @@
         android:id="@+id/textView2"
         android:layout_marginTop="20dp"
         android:layout_gravity="center_horizontal"
-        android:textColor="#ff0000"/>
+        android:textColor="#d40303"/>
 
     <EditText
         android:layout_width="match_parent"
@@ -76,30 +76,32 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="New Button"
-        android:id="@+id/button"
+        android:text="Sun &amp; Sand"
+        android:id="@+id/sunAndSand"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="30dp"/>
+        android:layout_marginTop="30dp"
+        android:layout_weight="0.15"/>
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="New Button"
+        android:text="City Break"
         android:id="@+id/button2"
         android:layout_gravity="center_horizontal"/>
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="New Button"
+        android:text="Cultural Getaway"
         android:id="@+id/button3"
         android:layout_gravity="center_horizontal"/>
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="New Button"
+        android:text="Nightlife Trip"
         android:id="@+id/button4"
-        android:layout_gravity="center_horizontal"/>
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.07"/>
 
 </LinearLayout>
