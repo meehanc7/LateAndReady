@@ -10,6 +10,13 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="ready.and.late.com.lateandready.LoginActivity"
-    tools:showIn="@layout/activity_login">
+    tools:showIn="@layout/activity_login"
+    android:weightSum="1">
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="269dp"
+        android:id="@+id/imageView"
+        android:layout_weight="0.61"
+        android:src="@mipmap/logo" />
 </LinearLayout>
