@@ -29,10 +29,10 @@ public class LoginActivity extends AppCompatActivity {
                 String emailText = String.valueOf(emailEditText.getText());
                 String passwordText = String.valueOf(passwordEditText.getText());
 
-                if (isEmailValid(emailText) && isPasswordValid(passwordText)) {
+//                if (isEmailValid(emailText) && isPasswordValid(passwordText)) {
                     Intent intent = new Intent(LoginActivity.this, SearchActivity.class);
                     startActivity(intent);
-                }
+//                }
             }
         });
     }
