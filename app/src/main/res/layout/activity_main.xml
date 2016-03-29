@@ -9,12 +9,10 @@
     tools:context="ready.and.late.com.lateandready.MainActivity">
 
 
-    <ImageView
-        android:layout_width="350dp"
-        android:layout_height="391dp"
-        android:id="@+id/imageView2"
-        android:layout_gravity="center_horizontal"
-        android:src="@mipmap/logo" />
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:id="@+id/fab"/>
 
     <EditText
         android:layout_width="274dp"
