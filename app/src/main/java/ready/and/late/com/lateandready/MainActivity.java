@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    // this method advances from the main_activity page to the search activity
     public void advanceToSearch(View view){
         startActivity(new Intent(getApplicationContext(), Search_Activity.class));
     }
