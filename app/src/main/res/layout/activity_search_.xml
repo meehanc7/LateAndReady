@@ -76,25 +76,28 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:drawableLeft="@mipmap/mipmap-xhdpi/sun_logo.png"
         android:text="Sun &amp; Sand"
-        android:id="@+id/sunAndSand"
+        android:id="@+id/button"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="30dp"
-        android:layout_weight="0.15"/>
+        android:textColor="#d40303"/>
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="City Break"
         android:id="@+id/button2"
-        android:layout_gravity="center_horizontal"/>
+        android:layout_gravity="center_horizontal"
+        android:textColor="#d40303"/>
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Cultural Getaway"
         android:id="@+id/button3"
-        android:layout_gravity="center_horizontal"/>
+        android:layout_gravity="center_horizontal"
+        android:textColor="#d40303"/>
 
     <Button
         android:layout_width="match_parent"
@@ -102,6 +105,7 @@
         android:text="Nightlife Trip"
         android:id="@+id/button4"
         android:layout_gravity="center_horizontal"
-        android:layout_weight="0.07"/>
+        android:layout_weight="0.07"
+        android:textColor="#d40303"/>
 
 </LinearLayout>
