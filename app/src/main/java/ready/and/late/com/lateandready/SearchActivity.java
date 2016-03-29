@@ -16,6 +16,9 @@ public class SearchActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        Button.
+        advanceToSearch.setOnClickListener(new View.OnClickListener())
+
 
     }
 
