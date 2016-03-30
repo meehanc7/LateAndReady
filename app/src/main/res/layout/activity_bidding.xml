@@ -98,6 +98,7 @@
                     android:layout_height="wrap_content"
                     android:background="@color/colorAccent"
                     android:text="Cancel"
+                    android:id="@+id/buttonCancelBid"
                     android:layout_margin="10dp"
                     android:textColor="@android:color/white"/>
 
@@ -107,6 +108,7 @@
                     android:layout_height="wrap_content"
                     android:background="@color/colorAccent"
                     android:text="Bid"
+                    android:id="@+id/buttonBid"
                     android:layout_margin="10dp"
                     android:textColor="@android:color/white"/>
 
