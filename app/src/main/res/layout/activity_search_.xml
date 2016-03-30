@@ -70,7 +70,7 @@
                 android:layout_marginTop="14dp"
                 android:background="@color/colorAccent"
                 android:text="Search"
-                android:id="@+id/buttonSearch"
+                android:id="@+id/buttonSearchFlight"
                 android:textColor="@android:color/white" />
 
             <TextView
@@ -96,36 +96,39 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="14dp"
-                android:id="@+id/buttonSunAndSand"
                 android:background="@color/colorAccent"
                 android:text="SUN &amp; SAND"
+                android:id="@+id/buttonSunAndSand"
                 android:textColor="@android:color/white" />
 
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="14dp"
-                android:id="@+id/buttonCityBreak"
                 android:background="@color/colorAccent"
                 android:text="CITY BREAK"
+                android:id="@+id/buttonCityBreak"
+                android:drawableLeft="@drawable/city_logo"
                 android:textColor="@android:color/white" />
 
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="14dp"
-                android:id="@+id/buttonCulturalGetaway"
                 android:background="@color/colorAccent"
                 android:text="CULTURAL GETAWAY"
+                android:id="@+id/CulturalGetaway"
+                android:drawableLeft="@drawable/cultural_logo"
                 android:textColor="@android:color/white" />
 
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="14dp"
-                android:id="@+id/buttonNighlLife"
                 android:background="@color/colorAccent"
                 android:text="NIGHTLIFE TRIP"
+                android:id="@+id/buttonNighlifeTrip"
+                android:drawableLeft="@drawable/drink_logo"
                 android:textColor="@android:color/white" />
 
         </LinearLayout>
