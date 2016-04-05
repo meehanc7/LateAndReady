@@ -14,14 +14,21 @@ public class BiddingActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bidding);
 
-
+        // Button to cancel the bidding process
         Button cancelBid = (Button) findViewById(R.id.buttonCancelBid);
         cancelBid.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v){
+            public void onClick(View v) {
                 openResultsActivity();
             }
+        });
 
+        Button submitBid = (Button) findViewById(R.id.buttonSubmitBid);
+        submitBid.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                openCongratsActivity();
+            }
         });
 
 
@@ -29,8 +36,14 @@ public class BiddingActivity extends Activity {
     private void openResultsActivity(){
         Intent intent = new Intent(BiddingActivity.this, ResultsActivity.class);
         startActivity(intent);
+    }
+
+    private void openCongratsActivity() {
+        Intent intent = new Intent(BiddingActivity.this, CongratsActivity.class);
+        startActivity(intent);
+    }
 
 
 
 }
-}
+

@@ -108,7 +108,7 @@
                     android:layout_height="wrap_content"
                     android:background="@color/colorAccent"
                     android:text="Bid"
-                    android:id="@+id/buttonBid"
+                    android:id="@+id/buttonSubmitBid"
                     android:layout_margin="10dp"
                     android:textColor="@android:color/white"/>
 
