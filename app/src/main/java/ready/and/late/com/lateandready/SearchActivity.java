@@ -38,7 +38,7 @@ public class SearchActivity extends AppCompatActivity {
         searchDestinationHelper.getAirports(new SearchDestinationResultsInterface() {
             @Override
             public void searchSuccessful(List<String> airportList) {
-
+                setUpAdapter(airportList);
             }
 
             @Override
@@ -62,7 +62,7 @@ public class SearchActivity extends AppCompatActivity {
 
     private void setUpAdapter(List<String> airports){
 
-        ArrayAdapter<String> airportsArrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1);
+        ArrayAdapter<String> airportsArrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,airports);
         departureEditText.setAdapter(airportsArrayAdapter);
         destinationEditText.setAdapter(airportsArrayAdapter);
 
