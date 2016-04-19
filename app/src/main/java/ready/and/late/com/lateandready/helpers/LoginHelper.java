@@ -5,12 +5,12 @@ package ready.and.late.com.lateandready.helpers;
  */
 public class LoginHelper {
 
-    public void login(String username, String password, LoginResultInterface loginResultInterface) {
-        if (username != null && password.length() >= 6) {
-            loginResultInterface.loginSuccesful();
+    public void login(String username, String password, LoginResultInterface loginResultInterface) { // 3 parameters S,S,I
+        if (username != null && password.length() >= 6) { //error checking username
+            loginResultInterface.loginSuccesful(); // going to interface and will allow user go to next page
         }
-        else if (username == null || password == null){
-            loginResultInterface.loginFailed("Login Failed - Please try again");
+        else if (username == null || password == null){ //simple error checking
+            loginResultInterface.loginFailed("Login Failed - Please try again"); // if interface login failed = T, show error msg
         }
 
     }

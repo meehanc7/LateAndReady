@@ -21,6 +21,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+
         emailEditText = (EditText) findViewById(R.id.edittext_login_email);
         passwordEditText = (EditText) findViewById(R.id.edittext_login_password);
         final LoginHelper loginHelper = new LoginHelper();
@@ -32,7 +33,7 @@ public class LoginActivity extends AppCompatActivity {
                 String emailText = String.valueOf(emailEditText.getText());
                 String passwordText = String.valueOf(passwordEditText.getText());
 
-                loginHelper.login(emailText, passwordText, new LoginResultInterface() {
+                loginHelper.login(emailText, passwordText, new LoginResultInterface() { //login helper class, login method, parameters, creating new interface
                     @Override
                     public void loginSuccesful() {
                         Intent intent = new Intent(LoginActivity.this, SearchActivity.class);
