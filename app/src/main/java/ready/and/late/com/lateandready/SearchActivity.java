@@ -73,16 +73,10 @@ public class SearchActivity extends AppCompatActivity {
 
     }
 
-
-
-    private void setUpAdapter(List<String> airports){
-
+    private void setUpAdapter(List<String> airports){           //creating a new adapter for our autocomplete textviews
         ArrayAdapter<String> airportsArrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,airports);
         departureEditText.setAdapter(airportsArrayAdapter);
         destinationEditText.setAdapter(airportsArrayAdapter);
-
-
-
     }
 
     private void openResultsActivity(String departure, String destination){
