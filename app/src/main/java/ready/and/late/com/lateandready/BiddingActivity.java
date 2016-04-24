@@ -3,12 +3,23 @@ package ready.and.late.com.lateandready;
 import android.content.Intent;
 import android.os.Bundle;
 import android.app.Activity;
+import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
+import ready.and.late.com.lateandready.helpers.BiddingHelper;
 import ready.and.late.com.lateandready.helpers.SearchResult;
 
 public class BiddingActivity extends Activity {
+
+    private TextView countdown;
+    private CountDownTimer biddingTimer;
+    private SearchResult mSearchResult;
+    private TextView textViewHighestBid;
+
+
 
 
     @Override
@@ -16,8 +27,40 @@ public class BiddingActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bidding);
 
-        // Button to cancel the bidding process
-        Button cancelBid = (Button) findViewById(R.id.buttonCancelBid);
+        if(getIntent()!=null){
+            mSearchResult = (SearchResult) getIntent().getSerializableExtra("key_search_results");
+        }
+
+        final BiddingHelper biddingHelper = new BiddingHelper();
+
+        countdown = (TextView) findViewById(R.id.countdownEditText);
+        countdown.setText("3 minutes");
+
+        final EditText myBid = (EditText) findViewById(R.id.editTextYourBid);
+
+
+
+        biddingTimer = new CountDownTimer(300000, 1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+                countdown.setText("Remaining: "+ millisUntilFinished / 1000);
+                textViewHighestBid.setText(biddingHelper.getLatestBid(mSearchResult.getDestinationAirport()));
+
+
+            }
+
+            @Override
+            public void onFinish() {
+
+            }
+        };
+        biddingTimer.start();
+
+
+
+
+                // Button to cancel the bidding process
+                Button cancelBid = (Button) findViewById(R.id.buttonCancelBid);
         cancelBid.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -29,13 +72,11 @@ public class BiddingActivity extends Activity {
         submitBid.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                openCongratsActivity();
+                String bidString = String.valueOf(myBid.getText());
+                biddingHelper.addBid(mSearchResult.getDestinationAirport(), bidString);
             }
         });
 
-        if(getIntent()!=null){
-            SearchResult searchResult = (SearchResult) getIntent().getSerializableExtra("key_search_results");
-        }
 
     }
     private void openResultsActivity(){
