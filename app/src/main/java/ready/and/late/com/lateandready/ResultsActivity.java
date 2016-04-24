@@ -29,10 +29,12 @@ public class ResultsActivity extends Activity {
 
         resultsRecyclerView=(RecyclerView)findViewById(R.id.resultsRecyclerView);
         resultsProgressBar= (ProgressBar)findViewById(R.id.resultsProgressBar);
+
+        //setting up recyeclerview
         resultsRecyclerView.setHasFixedSize(true);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         resultsRecyclerView.setLayoutManager(linearLayoutManager);
-        RecyclerView.ItemDecoration itemDecoration = new DividerItemDecoration(this, LinearLayoutManager.VERTICAL);
+        RecyclerView.ItemDecoration itemDecoration = new DividerItemDecoration(this, LinearLayoutManager.VERTICAL); //divider
         resultsRecyclerView.addItemDecoration(itemDecoration);
 
         SearchResultsHelper searchResultsHelper = new SearchResultsHelper();

@@ -12,15 +12,17 @@ public class SearchResultsHelper {
 
     public void searchForFlights(final String depature, String destination, int noOfPassengers, String date, final SearchResultsInterface searchResultsInterface){
 
+        //Running code on background thread too simulate server contact
         final Handler handler = new Handler();
         final Runnable runnable = new Runnable() {
             @Override
             public void run() {
                 List<SearchResult> resultList = getMockData(depature);
                 searchResultsInterface.searchSuccessfull(resultList);
-                handler.postDelayed(this, 2000);
             }
         };
+
+        //delay by two seconds
         handler.postDelayed(runnable, 2000);
     }
 
