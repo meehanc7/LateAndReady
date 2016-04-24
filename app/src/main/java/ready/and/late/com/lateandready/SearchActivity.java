@@ -49,8 +49,8 @@ public class SearchActivity extends AppCompatActivity {
         });
 
 
-        Button advancetoBid = (Button) findViewById(R.id.buttonSearchFlight);
-        advancetoBid.setOnClickListener(new View.OnClickListener(){
+        Button advancetoSearchResults = (Button) findViewById(R.id.buttonSearchFlight);
+        advancetoSearchResults.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
 
@@ -82,7 +82,7 @@ public class SearchActivity extends AppCompatActivity {
     private void openResultsActivity(String departure, String destination){
         Intent intent = new Intent(SearchActivity.this, ResultsActivity.class);
         intent.putExtra("key_departure", departure);
-        intent.putExtra("key_destination", destination);
+        intent.putExtra("key_destination", destination); //carries to next activity
         startActivity(intent);
     }
 
