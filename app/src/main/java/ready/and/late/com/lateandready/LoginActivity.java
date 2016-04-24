@@ -42,7 +42,7 @@ public class LoginActivity extends AppCompatActivity {
 
                     @Override
                     public void loginFailed(String errormessage) {
-                        showToast();
+                        showToast(errormessage);
                     }
                 });
             }
@@ -66,8 +66,8 @@ public class LoginActivity extends AppCompatActivity {
     }
 */
 
-    private void showToast(){
-        Toast.makeText(this, "Please enter correct email and password", Toast.LENGTH_SHORT).show();
+    private void showToast(String errorMessage){
+        Toast.makeText(this, errorMessage, Toast.LENGTH_SHORT).show();
     }
 
 }
