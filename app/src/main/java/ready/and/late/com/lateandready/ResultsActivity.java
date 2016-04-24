@@ -1,5 +1,6 @@
 package ready.and.late.com.lateandready;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.app.Activity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -19,10 +20,7 @@ public class ResultsActivity extends Activity {
 
     private RecyclerView resultsRecyclerView;
     private ProgressBar resultsProgressBar;
-
     private CustomResultsAdapter resultsAdapter;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +46,7 @@ public class ResultsActivity extends Activity {
                     resultsAdapter= new CustomResultsAdapter(searchResults, new CustomResultsAdapter.OnItemClickListener() {
                         @Override
                         public void onItemClick(SearchResult searchResult) {
-
+                                openBiddingScreen(searchResult);
                         }
                     });
                     resultsProgressBar.setVisibility(View.GONE);
@@ -58,11 +56,15 @@ public class ResultsActivity extends Activity {
 
                 @Override
                 public void searchFailed(String errorMessage) {
-
                 }
             });
         }
+    }
 
+    private void openBiddingScreen(SearchResult searchResult){
+        Intent intent = new Intent(ResultsActivity.this, BiddingActivity.class);
+        intent.putExtra("key_search_results", searchResult);
+        startActivity(intent);
     }
 
 }

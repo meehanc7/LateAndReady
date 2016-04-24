@@ -31,7 +31,7 @@ public class CustomResultsAdapter  extends RecyclerView.Adapter<CustomResultsAda
     }
 
     @Override // this is where it binds the search result to the view
-    public void onBindViewHolder(DataObjectHolder holder, int position) {
+    public void onBindViewHolder(DataObjectHolder holder, final int position) {
         SearchResult result = listOfResults.get(position);
         holder.departureAirport.setText(result.getDepartureAirport());
         holder.departureTime.setText(result.getDepartureTime());
@@ -39,6 +39,13 @@ public class CustomResultsAdapter  extends RecyclerView.Adapter<CustomResultsAda
         holder.flightDuration.setText(result.getFlightDuration());
         holder.arrivalTime.setText(result.getArrivalTime());
         holder.cost.setText(result.getCost());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listener.onItemClick(listOfResults.get(position));
+            }
+        });
 
     }
 

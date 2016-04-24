@@ -1,9 +1,11 @@
 package ready.and.late.com.lateandready.helpers;
 
+import java.io.Serializable;
+
 /**
  * Created by markf on 19/04/2016.
  */
-public class SearchResult {
+public class SearchResult implements Serializable {
     private String departureAirport;
     private String destinationAirport;
     private String departureTime;

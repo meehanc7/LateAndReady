@@ -6,6 +6,8 @@ import android.app.Activity;
 import android.view.View;
 import android.widget.Button;
 
+import ready.and.late.com.lateandready.helpers.SearchResult;
+
 public class BiddingActivity extends Activity {
 
 
@@ -31,6 +33,9 @@ public class BiddingActivity extends Activity {
             }
         });
 
+        if(getIntent()!=null){
+            SearchResult searchResult = (SearchResult) getIntent().getSerializableExtra("key_search_results");
+        }
 
     }
     private void openResultsActivity(){
