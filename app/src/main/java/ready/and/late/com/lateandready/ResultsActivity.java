@@ -18,9 +18,9 @@ import ready.and.late.com.lateandready.helpers.SearchResultsInterface;
 public class ResultsActivity extends Activity {
 
 
-    private RecyclerView resultsRecyclerView;
+    private RecyclerView resultsRecyclerView;           //new list view, makes for better performance
     private ProgressBar resultsProgressBar;
-    private CustomResultsAdapter resultsAdapter;
+    private CustomResultsAdapter resultsAdapter;        //takes each result and displays how we say
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
