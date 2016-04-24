@@ -8,7 +8,7 @@ import java.util.List;
 
 public class SearchDestinationHelper {
 
-    public void getAirports(SearchDestinationResultsInterface searchDestinationResults){
+    public void getAirports(SearchDestinationResultsInterface searchDestinationResultsInterface){
 
         List<String> airports = new ArrayList<String>();
 
@@ -21,7 +21,7 @@ public class SearchDestinationHelper {
         airports.add("Dublin");
 
 
-        searchDestinationResults.searchSuccessful(airports);
+        searchDestinationResultsInterface.searchSuccessful(airports);
 
     }
 
