@@ -44,7 +44,7 @@ public class SearchActivity extends AppCompatActivity {
 
             @Override
             public void searchFailed(String errorMessageAirports) {
-
+                showToast(errorMessageAirports);
             }
         });
 
