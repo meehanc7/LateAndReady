@@ -45,7 +45,7 @@ public class BiddingActivity extends AppCompatActivity {
             @Override
             public void onTick(long millisUntilFinished) {
                 countdown.setText("Remaining: "+ millisUntilFinished / 1000);
-                textViewHighestBid.setText(biddingHelper.getLatestBid(mSearchResult.getDestinationAirport()));
+
 
 
             }
@@ -74,7 +74,6 @@ public class BiddingActivity extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 String bidString = String.valueOf(myBid.getText());
-                biddingHelper.addBid(mSearchResult.getDestinationAirport(), bidString);
             }
         });
 

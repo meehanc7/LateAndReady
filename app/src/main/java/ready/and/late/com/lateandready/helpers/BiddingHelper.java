@@ -5,11 +5,23 @@ package ready.and.late.com.lateandready.helpers;
  */
 public class BiddingHelper {
 
-    public void addBid(String destination, String bid){
+    private double currentBid;
 
+    public void addBid(String auctionID, double bid, BiddingResultsInterface biddingResultsInterface){
+            if (bid < currentBid || bid == currentBid){
+                biddingResultsInterface.bidFailed("Please enter a bid more than the current bid");
+            }
+            else {
+                currentBid = bid;
+                biddingResultsInterface.bidSucessful(currentBid);
+            }
     }
 
-    public String getLatestBid(String destination){
-        return "500";
+    public void getLatestBid(String auctionID, double flightCost, LatestBidInterface latestBidInterface){
+            currentBid = flightCost;
+            latestBidInterface.currentBidSucessful(currentBid);
     }
+
+
+
 }
