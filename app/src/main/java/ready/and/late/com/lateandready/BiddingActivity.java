@@ -34,8 +34,6 @@ public class BiddingActivity extends AppCompatActivity {
 
         final BiddingHelper biddingHelper = new BiddingHelper();
 
-        countdown = (TextView) findViewById(R.id.countdownEditText);
-        countdown.setText("3 minutes");
 
         final EditText myBid = (EditText) findViewById(R.id.editTextYourBid);
 
@@ -44,8 +42,8 @@ public class BiddingActivity extends AppCompatActivity {
         biddingTimer = new CountDownTimer(300000, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
-                countdown.setText("Remaining: "+ millisUntilFinished / 1000);
-                textViewHighestBid.setText(biddingHelper.getLatestBid(mSearchResult.getDestinationAirport()));
+
+
 
 
             }
@@ -74,7 +72,6 @@ public class BiddingActivity extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 String bidString = String.valueOf(myBid.getText());
-                biddingHelper.addBid(mSearchResult.getDestinationAirport(), bidString);
             }
         });
 
