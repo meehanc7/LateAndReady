@@ -90,6 +90,8 @@ public class SearchActivity extends AppCompatActivity {
 
                 String departureText = String.valueOf(departureEditText.getText());
                 String destinationText = String.valueOf(destinationEditText.getText());
+                String date = String.valueOf(departureDate.getText());
+                String passengers = String.valueOf(noOfPassengers.getText());
 
                 if (!searchDestinationHelper.isValidAirport(departureText)){
                     showToast("Departure airport not valid");
@@ -99,7 +101,7 @@ public class SearchActivity extends AppCompatActivity {
                 }
                 else
                 {
-                    openResultsActivity(departureText, destinationText);
+                    openResultsActivity(departureText, destinationText, date, Integer.valueOf(passengers));
                 }
 
 
@@ -114,10 +116,14 @@ public class SearchActivity extends AppCompatActivity {
         destinationEditText.setAdapter(airportsArrayAdapter);
     }
 
-    private void openResultsActivity(String departure, String destination){
+    private void openResultsActivity(String departure, String destination, String date, int noOfPassengers){
         Intent intent = new Intent(SearchActivity.this, ResultsActivity.class);
+
+        //carries to next activity
         intent.putExtra("key_departure", departure);
-        intent.putExtra("key_destination", destination); //carries to next activity
+        intent.putExtra("key_destination", destination);
+        intent.putExtra("key_date", date);
+        intent.putExtra("key_noOfPassengers", noOfPassengers);
         startActivity(intent);
     }
 
