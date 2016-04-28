@@ -9,10 +9,7 @@
             android:weightSum="1"
             tools:context="ready.and.late.com.lateandready.MainActivity">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+
 
 
 
@@ -110,6 +107,6 @@
             </LinearLayout>
 
         </LinearLayout>
-    </LinearLayout>
+
 
 </ScrollView>
