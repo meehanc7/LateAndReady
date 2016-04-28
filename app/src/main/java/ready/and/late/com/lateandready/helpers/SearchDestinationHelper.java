@@ -8,25 +8,32 @@ import java.util.List;
 
 public class SearchDestinationHelper {
 
+    private List<String> airportsList;
+
     public void getAirports(SearchDestinationResultsInterface searchDestinationResultsInterface){
 
-        List<String> airports = new ArrayList<String>();
+        airportsList = new ArrayList<String>();
 
-        airports.add("Charles DE Gaulle");
-        airports.add("JFK");
-        airports.add("Heathrow");
-        airports.add("LAX");
-        airports.add("Beijing");
-        airports.add("La Guardia");
-        airports.add("Dublin");
+        airportsList.add("Charles DE Gaulle");
+        airportsList.add("JFK");
+        airportsList.add("Heathrow");
+        airportsList.add("LAX");
+        airportsList.add("Beijing");
+        airportsList.add("La Guardia");
+        airportsList.add("Dublin");
 
 
-        searchDestinationResultsInterface.searchSuccessful(airports);
+        searchDestinationResultsInterface.searchSuccessful(airportsList);
 
     }
 
 
     public boolean isValidAirport(String airport){
-            return airport!=null && airport!="";
+        if(airport != null && airport.length() > 0 && airportsList.contains(airport)){
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 }

@@ -58,10 +58,11 @@ public class SearchActivity extends AppCompatActivity {
                 if (!searchDestinationHelper.isValidAirport(departureText)){
                     showToast("Departure airport not valid");
                 }
-                if (!searchDestinationHelper.isValidAirport(destinationText)){
+                else if (!searchDestinationHelper.isValidAirport(destinationText)){
                     showToast("Destination airport not valid");
                 }
-                if(searchDestinationHelper.isValidAirport(destinationText) && searchDestinationHelper.isValidAirport(departureText)){
+                else
+                {
                     openResultsActivity(departureText, destinationText);
                 }
 
