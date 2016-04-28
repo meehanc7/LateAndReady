@@ -9,6 +9,6 @@ public interface TimeRemainingInterface {
 
     public void countdownTimeFinished();
 
-    public void updateCurrentBid();
+    public void updateCurrentBid(double latestBid, String username);
 }
 

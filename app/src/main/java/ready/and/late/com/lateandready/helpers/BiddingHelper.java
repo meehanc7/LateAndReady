@@ -11,6 +11,7 @@ public class BiddingHelper {
 
     private double currentBid;
     private CountDownTimer countDownTimer;
+    private int secondsgone;
 
     public void addBid(String auctionID, double bid, BiddingResultsInterface biddingResultsInterface){
             if (bid < currentBid || bid == currentBid){
@@ -35,16 +36,22 @@ public class BiddingHelper {
 
                     // changing time to make it look nice (got online)
                     public void onTick(long millisUntilFinished) {
+                        secondsgone = secondsgone +1;
                         String time = "" + String.format("%d min, %d sec",
                                 TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished),
                                 TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished) -
                                         TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished)));
                         timeRemainingInterface.countdownTime(time);
+                        // fake bidding after 5 seconds, updating the current bid, fake user
+                        if (secondsgone == 5){
+                            currentBid = currentBid +10;
+                            timeRemainingInterface.updateCurrentBid(currentBid, "mary123");
+                        }
                     }
 
                     @Override
                     public void onFinish() {
-
+                        timeRemainingInterface.countdownTimeFinished();
                     }
                 };
             }
