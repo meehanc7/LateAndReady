@@ -43,7 +43,10 @@ public class ResultsActivity extends AppCompatActivity {
         if(getIntent()!=null){
             String departure = getIntent().getStringExtra("key_departure");
             String destination = getIntent().getStringExtra("key_destination");
-            searchResultsHelper.searchForFlights(departure, destination, 1, "07/11/16", new SearchResultsInterface() {
+            String date = getIntent().getStringExtra("key_date");
+            int noOfPassengers = getIntent().getIntExtra("key_noOfPassengers",1);
+
+            searchResultsHelper.searchForFlights(departure, destination, noOfPassengers, date, new SearchResultsInterface() {
                 @Override
                 public void searchSuccessfull(List<SearchResult> searchResults) {
                     resultsAdapter= new CustomResultsAdapter(searchResults, new CustomResultsAdapter.OnItemClickListener() {
