@@ -8,6 +8,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import ready.and.late.com.lateandready.helpers.LoginHelper;
+import ready.and.late.com.lateandready.helpers.LoginResultInterface;
+
 public class LoginActivity extends AppCompatActivity {
 
     private EditText emailEditText;
@@ -20,23 +23,31 @@ public class LoginActivity extends AppCompatActivity {
 
         emailEditText = (EditText) findViewById(R.id.edittext_login_email);
         passwordEditText = (EditText) findViewById(R.id.edittext_login_password);
+        final LoginHelper loginHelper = new LoginHelper();
 
         Button advanceToSearch = (Button) findViewById(R.id.buttonLogin);
         advanceToSearch.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-
+            public void onClick(View v) {
                 String emailText = String.valueOf(emailEditText.getText());
                 String passwordText = String.valueOf(passwordEditText.getText());
 
-//                if (isEmailValid(emailText) && isPasswordValid(passwordText)) {
-                    Intent intent = new Intent(LoginActivity.this, SearchActivity.class);
-                    startActivity(intent);
-//                }
+                loginHelper.login(emailText, passwordText, new LoginResultInterface() {
+                    @Override
+                    public void loginSuccesful() {
+                        Intent intent = new Intent(LoginActivity.this, SearchActivity.class);
+                        startActivity(intent);
+                    }
+
+                    @Override
+                    public void loginFailed(String errormessage) {
+                        showToast();
+                    }
+                });
             }
         });
     }
-
+/*
     private boolean isEmailValid(String emailText) {
         if (emailText == null || emailText.length() <= 5) {
             Toast.makeText(this, "Please enter correct email", Toast.LENGTH_SHORT).show();
@@ -51,6 +62,11 @@ public class LoginActivity extends AppCompatActivity {
             return false;
         }
         return true;
+    }
+*/
+
+    private void showToast(){
+        Toast.makeText(this, "Please enter correct email and password", Toast.LENGTH_SHORT).show();
     }
 
 }
