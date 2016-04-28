@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.app.Activity;
 import android.os.CountDownTimer;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -12,7 +13,7 @@ import android.widget.TextView;
 import ready.and.late.com.lateandready.helpers.BiddingHelper;
 import ready.and.late.com.lateandready.helpers.SearchResult;
 
-public class BiddingActivity extends Activity {
+public class BiddingActivity extends AppCompatActivity {
 
     private TextView countdown;
     private CountDownTimer biddingTimer;

@@ -3,6 +3,7 @@ package ready.and.late.com.lateandready;
 import android.content.Intent;
 import android.os.Bundle;
 import android.app.Activity;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -15,7 +16,7 @@ import ready.and.late.com.lateandready.helpers.SearchResult;
 import ready.and.late.com.lateandready.helpers.SearchResultsHelper;
 import ready.and.late.com.lateandready.helpers.SearchResultsInterface;
 
-public class ResultsActivity extends Activity {
+public class ResultsActivity extends AppCompatActivity {
 
 
     private RecyclerView resultsRecyclerView;           //new list view, makes for better performance
