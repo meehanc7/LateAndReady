@@ -40,8 +40,8 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textColor="#d40303"/>
 
-            <EditText
-                android:id="@+id/countdownEditText"
+            <TextView
+                android:id="@+id/countdownTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
