@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -34,7 +35,7 @@ public class SearchActivity extends AppCompatActivity {
         departureEditText = (AutoCompleteTextView)findViewById(R.id.departureEditText);
         destinationEditText = (AutoCompleteTextView) findViewById(R.id.destinationEditText);
 
-        SearchDestinationHelper searchDestinationHelper = new SearchDestinationHelper();
+        final SearchDestinationHelper searchDestinationHelper = new SearchDestinationHelper();
         searchDestinationHelper.getAirports(new SearchDestinationResultsInterface() {
             @Override
             public void searchSuccessful(List<String> airportList) {
@@ -48,11 +49,25 @@ public class SearchActivity extends AppCompatActivity {
         });
 
 
-        Button advancetoBid = (Button) findViewById(R.id.buttonSunAndSand);
+        Button advancetoBid = (Button) findViewById(R.id.buttonSearchFlight);
         advancetoBid.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                openBiddingActivity();
+
+                String departureText = String.valueOf(departureEditText.getText());
+                String destinationText = String.valueOf(destinationEditText.getText());
+
+                if (!searchDestinationHelper.isValidAirport(departureText)){
+                    showToast("Departure airport not valid");
+                }
+                if (!searchDestinationHelper.isValidAirport(destinationText)){
+                    showToast("Destination airport not valid");
+                }
+                if(searchDestinationHelper.isValidAirport(destinationText) && searchDestinationHelper.isValidAirport(departureText)){
+                    openResultsActivity(departureText, destinationText);
+                }
+
+
             }
         });
 
@@ -70,9 +85,15 @@ public class SearchActivity extends AppCompatActivity {
 
     }
 
-    private void openBiddingActivity(){
-        Intent intent = new Intent(SearchActivity.this, BiddingActivity.class);
+    private void openResultsActivity(String departure, String destination){
+        Intent intent = new Intent(SearchActivity.this, ResultsActivity.class);
+        intent.putExtra("key_departure", departure);
+        intent.putExtra("key_destination", destination);
         startActivity(intent);
+    }
+
+    private void showToast(String message){
+        Toast.makeText(this,message, Toast.LENGTH_SHORT).show();
     }
 
 }

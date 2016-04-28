@@ -23,9 +23,10 @@ public class SearchDestinationHelper {
 
         searchDestinationResults.searchSuccessful(airports);
 
-
-
-
     }
 
+
+    public boolean isValidAirport(String airport){
+            return airport!=null && airport!="";
+    }
 }
