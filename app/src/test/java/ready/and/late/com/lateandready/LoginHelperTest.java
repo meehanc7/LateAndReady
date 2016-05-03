@@ -58,4 +58,52 @@ public class LoginHelperTest {
         });
 
     }
+
+
+    @Test
+    public void testLoginHelperCorrectUsernameWrongPassword() throws Exception {
+        LoginHelper loginHelper = new LoginHelper();
+
+
+        loginHelper.login("conor.meehan21@gmail.com", "rong", new LoginResultInterface() {
+            @Override
+            public void loginSuccesful() {
+
+                fail();
+
+            }
+
+            @Override
+            public void loginFailed(String errormessage) {
+
+                assertTrue(true);
+
+            }
+        });
+
+    }
+
+
+    @Test
+    public void testLoginHelperWrongUsernameCorrectPassword() throws Exception {
+        LoginHelper loginHelper = new LoginHelper();
+
+
+        loginHelper.login("fart", "rightpassword", new LoginResultInterface() {
+            @Override
+            public void loginSuccesful() {
+
+                fail();
+
+            }
+
+            @Override
+            public void loginFailed(String errormessage) {
+
+                assertTrue(true);
+
+            }
+        });
+
+    }
 }
