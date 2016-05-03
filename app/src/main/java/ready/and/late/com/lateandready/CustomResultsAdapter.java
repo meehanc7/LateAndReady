@@ -38,7 +38,7 @@ public class CustomResultsAdapter  extends RecyclerView.Adapter<CustomResultsAda
         holder.destinationAirport.setText(result.getDestinationAirport());
         holder.flightDuration.setText(result.getFlightDuration());
         holder.arrivalTime.setText(result.getArrivalTime());
-        holder.cost.setText(result.getCost());
+        holder.cost.setText("€" + result.getCost());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override

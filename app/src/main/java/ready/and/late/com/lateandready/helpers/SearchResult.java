@@ -11,9 +11,9 @@ public class SearchResult implements Serializable {
     private String departureTime;
     private String arrivalTime;
     private String flightDuration;
-    private String cost;
+    private double cost;
 
-    public SearchResult(String departureAirport, String destinationAirport, String departureTime, String arrivalTime, String flightDuration, String cost) {
+    public SearchResult(String departureAirport, String destinationAirport, String departureTime, String arrivalTime, String flightDuration, double cost) {
         this.departureAirport = departureAirport;
         this.destinationAirport = destinationAirport;
         this.departureTime = departureTime;
@@ -62,11 +62,11 @@ public class SearchResult implements Serializable {
         this.flightDuration = flightDuration;
     }
 
-    public String getCost() {
+    public double getCost() {
         return cost;
     }
 
-    public void setCost(String cost) {
+    public void setCost(double cost) {
         this.cost = cost;
     }
 }
