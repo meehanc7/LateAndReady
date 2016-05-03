@@ -30,7 +30,7 @@ public class BiddingHelper {
     }
 
     public void getTimeRemaining(String auctionID, final TimeRemainingInterface timeRemainingInterface){
-            if (countDownTimer != null){
+            if (countDownTimer == null){
                 // creating new countdown time, 2 minutes ticks every second
                 countDownTimer = new CountDownTimer(120000, 1000) {
                     @Override
@@ -55,6 +55,7 @@ public class BiddingHelper {
                         timeRemainingInterface.countdownTimeFinished();
                     }
                 };
+                countDownTimer.start();
             }
     }
 

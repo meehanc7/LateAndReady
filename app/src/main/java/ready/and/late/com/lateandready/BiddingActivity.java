@@ -12,12 +12,12 @@ import android.widget.TextView;
 
 import ready.and.late.com.lateandready.helpers.BiddingHelper;
 import ready.and.late.com.lateandready.helpers.SearchResult;
+import ready.and.late.com.lateandready.helpers.TimeRemainingInterface;
 
 public class BiddingActivity extends AppCompatActivity {
 
     private TextView countdown;
-    private CountDownTimer biddingTimer;
-    private SearchResult mSearchResult;
+    private SearchResult searchResult;
     private TextView textViewHighestBid;
 
 
@@ -29,7 +29,7 @@ public class BiddingActivity extends AppCompatActivity {
         setContentView(R.layout.activity_bidding);
 
         if(getIntent()!=null) {
-            mSearchResult = (SearchResult) getIntent().getSerializableExtra("key_search_results");
+            searchResult = (SearchResult) getIntent().getSerializableExtra("key_search_results");
 
 
             final BiddingHelper biddingHelper = new BiddingHelper();
@@ -42,21 +42,24 @@ public class BiddingActivity extends AppCompatActivity {
             final Button buttonSubmitBid = (Button) findViewById(R.id.buttonSubmitBid);
 
 
-            bidTitle.setText(mSearchResult.getDepartureAirport() + " -> " + mSearchResult.getDestinationAirport());
+            bidTitle.setText(searchResult.getDepartureAirport() + " -> " + searchResult.getDestinationAirport());
 
-            biddingTimer = new CountDownTimer(300000, 1000) {
+            biddingHelper.getTimeRemaining("auction243", new TimeRemainingInterface() {
                 @Override
-                public void onTick(long millisUntilFinished) {
+                public void countdownTime(String time) {
+                    countdownTextView.setText(time);
+                }
+
+                @Override
+                public void countdownTimeFinished() {
 
                 }
 
                 @Override
-                public void onFinish() {
+                public void updateCurrentBid(double latestBid, String username) {
 
                 }
-            };
-            biddingTimer.start();
-
+            });
 
             // Button to cancel the bidding process
             Button cancelBid = (Button) findViewById(R.id.buttonCancelBid);
