@@ -34,17 +34,16 @@ public class BiddingActivity extends AppCompatActivity {
 
         final BiddingHelper biddingHelper = new BiddingHelper();
 
-
-        final EditText myBid = (EditText) findViewById(R.id.editTextYourBid);
-
-
+        final TextView bidTitle = (TextView) findViewById(R.id.bidTitle);
+        final TextView countdownTextView = (TextView) findViewById(R.id.countdownTextView);
+        final TextView textViewHighestBid = (TextView) findViewById(R.id.textViewHighestBid);
+        final TextView editTextYourBid = (TextView) findViewById(R.id.editTextYourBid);
+        final Button buttonCancelBid = (Button) findViewById(R.id.buttonCancelBid);
+        final Button buttonSubmitBid = (Button) findViewById(R.id.buttonSubmitBid);
 
         biddingTimer = new CountDownTimer(300000, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
-
-
-
 
             }
 
