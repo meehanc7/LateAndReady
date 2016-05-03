@@ -12,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import ready.and.late.com.lateandready.helpers.BiddingHelper;
+import ready.and.late.com.lateandready.helpers.BiddingResultsInterface;
 import ready.and.late.com.lateandready.helpers.LatestBidInterface;
 import ready.and.late.com.lateandready.helpers.SearchResult;
 import ready.and.late.com.lateandready.helpers.TimeRemainingInterface;
@@ -74,7 +75,7 @@ public class BiddingActivity extends AppCompatActivity {
 
                 @Override
                 public void currentBidFailed(String errorMessage) {
-                        showToast("Bid Failed - Bid must be bigger than the latest bid");
+                        showToast("Bid Failed - Your bid must be bigger than the latest bid");
                 }
             });
 
@@ -87,11 +88,24 @@ public class BiddingActivity extends AppCompatActivity {
                 }
             });
 
+
             Button submitBid = (Button) findViewById(R.id.buttonSubmitBid);
             submitBid.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     String bidString = String.valueOf(editTextYourBid.getText());
+                    biddingHelper.addBid("auction123", Double.valueOf(bidString), new BiddingResultsInterface() {
+                        @Override
+                        public void bidSucessful(double currentBid) {
+                            textViewHighestBid.setText(currentBid + "");
+                            showToast("Bid updated successfully");
+                        }
+
+                        @Override
+                        public void bidFailed(String errorMessage) {
+                            showToast("Bid Failed - Your bid must be bigger than the latest bid");
+                        }
+                    });
                 }
             });
 
