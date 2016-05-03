@@ -12,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import ready.and.late.com.lateandready.helpers.BiddingHelper;
+import ready.and.late.com.lateandready.helpers.LatestBidInterface;
 import ready.and.late.com.lateandready.helpers.SearchResult;
 import ready.and.late.com.lateandready.helpers.TimeRemainingInterface;
 
@@ -61,6 +62,19 @@ public class BiddingActivity extends AppCompatActivity {
                 public void updateCurrentBid(double latestBid, String username) {
                     textViewHighestBid.setText(latestBid + "");
                     showToast(username + "has out bid you!");
+                }
+            });
+
+            biddingHelper.getLatestBid("auction123", searchResult.getCost(), new LatestBidInterface() {
+                @Override
+                public void currentBidSucessful(double latestBid) {
+                    textViewHighestBid.setText(latestBid + "");
+                    showToast("Bid Successful");
+                }
+
+                @Override
+                public void currentBidFailed(String errorMessage) {
+                        showToast("Bid Failed - Bid must be bigger than the latest bid");
                 }
             });
 
