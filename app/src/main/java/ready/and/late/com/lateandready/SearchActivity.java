@@ -84,6 +84,12 @@ public class SearchActivity extends AppCompatActivity {
 
 
                 Button advancetoSearchResults = (Button) findViewById(R.id.buttonSearchFlight);
+                Button sunAdvancetoSearchResults = (Button) findViewById(R.id.buttonSunAndSand);
+                Button cityAdvancetoSearchResults = (Button) findViewById(R.id.buttonCityBreak);
+                Button cultureAdvancetoSearchResults = (Button) findViewById(R.id.buttonCulturalGetaway);
+                Button nightAdvancetoSearchResults = (Button) findViewById(R.id.buttonNighlifeTrip);
+
+
         advancetoSearchResults.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
@@ -107,6 +113,36 @@ public class SearchActivity extends AppCompatActivity {
 
             }
         });
+
+        sunAdvancetoSearchResults.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openResultsActivity("SubDeparture", "SubDestination", "SubDate", 5 );
+            }
+        });
+
+        cityAdvancetoSearchResults.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openResultsActivity("SubDeparture", "SubDestination", "SubDate", 5 );
+            }
+        });
+
+        cultureAdvancetoSearchResults.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openResultsActivity("SubDeparture", "SubDestination", "SubDate", 5 );
+            }
+        });
+
+        nightAdvancetoSearchResults.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openResultsActivity("SubDeparture", "SubDestination", "SubDate", 5 );
+            }
+        });
+
+
 
     }
 
