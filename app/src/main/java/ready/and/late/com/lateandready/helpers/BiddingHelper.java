@@ -23,9 +23,10 @@ public class BiddingHelper {
             }
     }
 
+        //the current bid as soon as the bidding screen opens
     public void getLatestBid(String auctionID, double flightCost, LatestBidInterface latestBidInterface){
-            currentBid = flightCost;
-            latestBidInterface.currentBidSucessful(currentBid);
+            currentBid = flightCost; //update with the mock bid
+            latestBidInterface.currentBidSucessful(currentBid); //calling bid successful method and passing through current bid
     }
 
     public void getTimeRemaining(String auctionID, final TimeRemainingInterface timeRemainingInterface){
@@ -34,7 +35,7 @@ public class BiddingHelper {
                 countDownTimer = new CountDownTimer(120000, 1000) {
                     @Override
 
-                    // changing time to make it look nice (got online)
+                    // changing time to make it look nice - run every second
                     public void onTick(long millisUntilFinished) {
                         secondsgone = secondsgone +1;
                         String time = "" + String.format("%d min, %d sec",
