@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import ready.and.late.com.lateandready.helpers.BiddingHelper;
 import ready.and.late.com.lateandready.helpers.SearchResult;
@@ -52,7 +53,8 @@ public class BiddingActivity extends AppCompatActivity {
 
                 @Override
                 public void countdownTimeFinished() {
-
+                    showToast("bidding has finished");
+                    openCongratsActivity();
                 }
 
                 @Override
@@ -89,6 +91,12 @@ public class BiddingActivity extends AppCompatActivity {
     private void openCongratsActivity() {
         Intent intent = new Intent(BiddingActivity.this, CongratsActivity.class);
         startActivity(intent);
+    }
+
+
+
+    private void showToast(String errorMessage){
+        Toast.makeText(this, errorMessage, Toast.LENGTH_SHORT).show();
     }
 
 
