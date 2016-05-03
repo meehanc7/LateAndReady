@@ -28,52 +28,54 @@ public class BiddingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bidding);
 
-        if(getIntent()!=null){
+        if(getIntent()!=null) {
             mSearchResult = (SearchResult) getIntent().getSerializableExtra("key_search_results");
+
+
+            final BiddingHelper biddingHelper = new BiddingHelper();
+
+            final TextView bidTitle = (TextView) findViewById(R.id.bidTitle);
+            final TextView countdownTextView = (TextView) findViewById(R.id.countdownTextView);
+            final TextView textViewHighestBid = (TextView) findViewById(R.id.textViewHighestBid);
+            final TextView editTextYourBid = (TextView) findViewById(R.id.editTextYourBid);
+            final Button buttonCancelBid = (Button) findViewById(R.id.buttonCancelBid);
+            final Button buttonSubmitBid = (Button) findViewById(R.id.buttonSubmitBid);
+
+
+            bidTitle.setText(mSearchResult.getDepartureAirport() + " -> " + mSearchResult.getDestinationAirport());
+
+            biddingTimer = new CountDownTimer(300000, 1000) {
+                @Override
+                public void onTick(long millisUntilFinished) {
+
+                }
+
+                @Override
+                public void onFinish() {
+
+                }
+            };
+            biddingTimer.start();
+
+
+            // Button to cancel the bidding process
+            Button cancelBid = (Button) findViewById(R.id.buttonCancelBid);
+            cancelBid.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    openResultsActivity();
+                }
+            });
+
+            Button submitBid = (Button) findViewById(R.id.buttonSubmitBid);
+            submitBid.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    String bidString = String.valueOf(editTextYourBid.getText());
+                }
+            });
+
         }
-
-        final BiddingHelper biddingHelper = new BiddingHelper();
-
-        final TextView bidTitle = (TextView) findViewById(R.id.bidTitle);
-        final TextView countdownTextView = (TextView) findViewById(R.id.countdownTextView);
-        final TextView textViewHighestBid = (TextView) findViewById(R.id.textViewHighestBid);
-        final TextView editTextYourBid = (TextView) findViewById(R.id.editTextYourBid);
-        final Button buttonCancelBid = (Button) findViewById(R.id.buttonCancelBid);
-        final Button buttonSubmitBid = (Button) findViewById(R.id.buttonSubmitBid);
-
-        biddingTimer = new CountDownTimer(300000, 1000) {
-            @Override
-            public void onTick(long millisUntilFinished) {
-
-            }
-
-            @Override
-            public void onFinish() {
-
-            }
-        };
-        biddingTimer.start();
-
-
-
-
-                // Button to cancel the bidding process
-                Button cancelBid = (Button) findViewById(R.id.buttonCancelBid);
-        cancelBid.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openResultsActivity();
-            }
-        });
-
-        Button submitBid = (Button) findViewById(R.id.buttonSubmitBid);
-        submitBid.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                String bidString = String.valueOf(myBid.getText());
-            }
-        });
-
 
     }
     private void openResultsActivity(){
