@@ -59,7 +59,8 @@ public class BiddingActivity extends AppCompatActivity {
 
                 @Override
                 public void updateCurrentBid(double latestBid, String username) {
-
+                    textViewHighestBid.setText(latestBid + "");
+                    showToast(username + "has out bid you!");
                 }
             });
 
